@@ -3,11 +3,12 @@ define([], function(){
 	var self = {};
 
 	// Only to group initializing actions
-	function start() {
+	function run() {
 		
 		console.log('game');
 	}
 
+	run();
 
 	return self;
 });

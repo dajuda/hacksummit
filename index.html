@@ -3,35 +3,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Hacksummit Game</title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content="html5, game, melonjs"/>
-    <meta name="robots" content="index, follow">
-
-    <link rel="shortcut icon" href="data/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+	<title>Game</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+	<script src="lib/require.js" type="text/javascript" data-main="scripts/main.js" charset="utf-8" async defer></script>
 </head>
 <body>
-	<div id="game-container"></div>
-	<!-- Game engine and Library -->
-	<script src="js/lib/melonJS-min.js" type="text/javascript"></script>
-
-	<!-- Plugins -->
-	<script src="js/lib/plugins/debugPanel.js" type="text/javascript" charset="utf-8"></script>
-	
-	<!-- Main game files -->
-	<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/resources.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/entities/entities.js" type="text/javascript" charset="utf-8"></script>
-
-	<!-- Screen files -->
-	<script src="js/screens/Title.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/screens/MainMenu.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/screens/Play.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/screens/About.js" type="text/javascript" charset="utf-8"></script>
-
-
-	<!-- Starts game when page load -->
-	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	<main id="main-content">
+		<img src="data/img/logo.png" class="main-logo" width="550" height="200">
+		<ul class="nav nav-stacked main-menu-itens">
+			<li id="#play"><img src="data/img/play_btn.png"></li>
+			<li id="#attack"><img src="data/img/attack_btn.png"></li>
+			<li id="#about"><img src="data/img/about_btn.png"></li>
+		</ul>
+	</main>
+	<footer>
+		<p>Made for hacksummit() hackaton by Cainã D'Ajuda e Eduardo Ciciliato</p>
+	</footer>
 </body>
 </html>

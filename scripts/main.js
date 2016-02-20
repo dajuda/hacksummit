@@ -1,7 +1,7 @@
 requirejs.config({
     baseUrl: 'lib',
     paths: {
-        'app'		: '../js/modules/',
+        'app'		: '../scripts/',
         //'jquery'	: 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min',
         //'bootstrap'	: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min',
         'jquery'    : 'jquery-2.2.0/jquery-2.2.0.min',
