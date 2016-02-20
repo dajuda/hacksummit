@@ -3,6 +3,7 @@ game.resources = [
 	{ name: 'signs_cat', 		type: 'image', 	src: 'data/img/signs/catanimation.gif' 	},
 	// Backgrounds
 	{ name: 'main_background', 	type: 'image', 	src: 'data/img/bkg.png' 				},
+	{ name: 'model_option', 	type: 'image', 	src: 'data/img/gif_box.png' 				},
 	// Labels
 	{ name: 'ready_label', 		type: 'image', 	src: 'data/img/ready_lbl.png' 			},
 	{ name: 'game_over_label', 	type: 'image', 	src: 'data/img/game_over_lbl.png' 		},
