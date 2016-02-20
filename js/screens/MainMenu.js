@@ -78,5 +78,6 @@ game.MainMenuScreen = me.ScreenObject.extend({
         me.input.unbindKey(me.input.KEY.P);
         me.input.unbindKey(me.input.KEY.T);
         me.input.unbindKey(me.input.KEY.A);
+		me.game.world.removeChild(this.images.title_label);
 	},
 });
