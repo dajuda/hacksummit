@@ -8,6 +8,7 @@ game.resources = [
 	{ name: 'game_over_label', 	type: 'image', 	src: 'data/img/game_over_lbl.png' 		},
 	{ name: 'title_label', 	    type: 'image', 	src: 'data/img/title_lbl.png' 			},
 	{ name: 'arrow',			type: 'image', 	src: 'data/img/arrow.png' 				},
+	{ name: 'stage1_label', 	type: 'image', 	src: 'data/img/stage1_lbl.png' 		},
 	// Buttons
 	{ name: 'play_button', 		type: 'image', 	src: 'data/img/play_btn.png' 			},
 	{ name: 'attack_button', 	type: 'image', 	src: 'data/img/attack_btn.png' 			},

@@ -1,7 +1,7 @@
 game.MainMenuScreen = me.ScreenObject.extend({
 
 	init: function( ) {
-        me.audio.play('theme', true);
+        me.audio.playTrack('theme', true);
 		this._super(me.ScreenObject, 'init');
 		this.selectedMenu = 0;
 		this.images = {
