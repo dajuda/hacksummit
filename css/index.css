@@ -1,3 +1,8 @@
+@font-face{
+	font-family: Asenine;
+	src: url("fonts/asenine/ASENINE_.ttf");
+}
+
 body{
 
 	background: url("../data/img/bkg.png") center center repeat;
@@ -34,7 +39,6 @@ footer{
 	background-color: #FFF;
 	margin: 20px auto;
 	padding: 20px;
-	border-radius: 20px;
 }
 
 .main-menu-itens {
@@ -48,17 +52,23 @@ footer{
 .main-menu-itens li{
 	margin: 10px 0;
 	cursor: pointer;
-	height: 55px;
-	padding: 10px;
-	padding-bottom: 0;
+	padding: 0 25px;
+	padding-bottom: 5px;
+	font-family: Asenine;
+	font-size: 3em;
+	font-weight: bold;
+	width: 210px;
+
 }
 
 .main-menu-itens li:hover {
 	background-color: #222;
 	border-radius: 10px;
+	color: #FFF;
 }
 
-.main-menu-itens li:active > img{
-	height: 34px;
-	margin: 3px 0;
+.main-menu-itens li:active{
+	font-size: 2.5em;
+	padding-top: 5px;
+	padding-bottom: 10px;
 }
