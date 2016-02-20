@@ -1,7 +1,7 @@
 game.MainMenuScreen = me.ScreenObject.extend({
 
 	init: function( ) {
-        me.audio.playTrack('theme', true);
+        me.audio.play('theme', true);
 		this._super(me.ScreenObject, 'init');
 		this.selectedMenu = 0;
 		this.images = {
@@ -10,7 +10,6 @@ game.MainMenuScreen = me.ScreenObject.extend({
 			'play_button' : new me.ImageLayer((me.game.viewport.width/2)-31.5, 325, { image: 'play_button', repeat: 'no-repeat' }),
 			'attack_button' : new me.ImageLayer(me.game.viewport.width/2-97.5, 375, { image: 'attack_button', repeat: 'no-repeat' }),
 			'about_button' : new me.ImageLayer(me.game.viewport.width/2-45, 425, { image: 'about_button', repeat: 'no-repeat' }),
-			'arrow' : new me.ImageLayer(me.game.viewport.width/2-150, 325, { image: 'arrow', repeat: 'no-repeat', alwaysUpdate: true }),
 		};
 		// Order in which the menu items appear
 		this.menuItemKeys = [ 'play', 'timeattack', 'about'];
@@ -27,7 +26,7 @@ game.MainMenuScreen = me.ScreenObject.extend({
 		me.game.world.addChild(this.images.play_button);
 		me.game.world.addChild(this.images.attack_button);
 		me.game.world.addChild(this.images.about_button);
-		me.game.world.addChild(this.images.arrow);
+		me.game.world.addChild(new TitleArrow(me.game.viewport.width/2-150, 325));
 
         me.input.bindKey(me.input.KEY.DOWN, 'down', true);
         me.input.bindKey(me.input.KEY.UP, 'up', true);
@@ -47,17 +46,13 @@ game.MainMenuScreen = me.ScreenObject.extend({
 	menuKeyHandler: function( action ) {
 		switch(action){
 			case 'up':
-				this.selectedMenu = this.selectedMenu == 0 ? 2 : this.selectedMenu - 1;
-				this.images.arrow.pos = {x: me.game.viewport.width/2-150, y: 325 + (50 * this.selectedMenu)};
-				this.onUpdate( this );
+				game.data.menuOP = game.data.menuOP == 0 ? 2 : game.data.menuOP - 1;
 				break;
 			case 'down':
-				this.selectedMenu = this.selectedMenu == 2 ? 0 : this.selectedMenu + 1;
-				this.images.arrow.pos = {x: me.game.viewport.width/2-150, y: 325 + (50 * this.selectedMenu)};
-				this.onUpdate( this );
+				game.data.menuOP = game.data.menuOP == 2 ? 0 : game.data.menuOP + 1;
 				break;
 			case 'enter':
-				this.menuKeyHandler( this.menuItemKeys[ this.selectedMenu ] );
+				this.menuKeyHandler( this.menuItemKeys[ game.data.menuOP ] );
 				break;
 			case 'play':
 				me.state.change(me.state.PLAY, 'play');
@@ -69,12 +64,6 @@ game.MainMenuScreen = me.ScreenObject.extend({
 				me.state.change(me.state.CREDITS);
 				break;
 		};
-	},
-
-	onUpdate : function( ) {
-		for( i in this.images ){
-			this.images[i].draw(me.video.renderer);
-		}
 	},
 
 	onDestroyEvent: function( ) {
