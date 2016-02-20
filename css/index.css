@@ -3,10 +3,12 @@
 	src: url("fonts/asenine/ASENINE_.ttf");
 }
 
-body{
-
-	background: url("../data/img/bkg.png") center center repeat;
-	background-clip: cover;
+.page-background{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 header{
