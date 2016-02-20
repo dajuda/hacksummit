@@ -1,7 +1,13 @@
 define([], function(){
 
 	var self = {};
-	console.log('game');
+
+	// Only to group initializing actions
+	function start() {
+		
+		console.log('game');
+	}
+
 
 	return self;
 });
