@@ -8,7 +8,7 @@ var game = {
 
     "onload": function() {
         if(!me.video.init(900, 600, {
-                         wrapper : "screen",
+                         wrapper : "game-container",
                          renderer : me.video.CANVAS,
                          scale : "auto",
                          scaleMethod : "fit"
@@ -23,7 +23,7 @@ var game = {
         me.loader.onload = this.loaded.bind(this);
         me.loader.preload(game.resources);
         me.state.change(me.state.LOADING);
-    }
+    },
 
     "loaded": function() {
         me.state.set(me.state.MENU, new game.TitleSrceen());
@@ -35,4 +35,5 @@ var game = {
 
         me.game.viewport.setBounds(0, 0, 900, 600);
         me.state.change(me.state.MENU);
-}
+    },
+};
