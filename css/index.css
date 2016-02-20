@@ -1,16 +1,20 @@
+body{
+
+	background: url("../data/img/bkg.png") center center repeat;
+	background-clip: cover;
+}
+
 header{
 	text-align: center;
 	padding: 10px 0;
 }
 
 main{
-	background-color: #222;
+	// background-color: #222;
 	height: 600px;
 	margin: 10px auto;
 	width: 1000px;
 	margin-top: 20px;
-	background: url("../data/img/bkg.png") center center repeat;
-	background-clip: cover;
 	position: relative;
 	text-align: center;
 }
@@ -19,12 +23,18 @@ footer{
 	padding: 20px 0;
 	text-align: center;
 	font-weight: bold;
+	color: #E5E5E5;
+	background-color: #222;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
 .main-logo{
 	background-color: #FFF;
 	margin: 20px auto;
 	padding: 20px;
+	border-radius: 20px;
 }
 
 .main-menu-itens {
