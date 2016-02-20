@@ -1,0 +1,25 @@
+header{
+	text-align: center;
+	padding: 10px 0;
+}
+
+main{
+	background-color: #222;
+	height: 600px;
+	margin: 10px auto;
+	width: 900px;
+}
+
+footer{
+	padding: 20px 0;
+	text-align: center;
+	font-weight: bold;
+}
+
+.titleScreen {
+	background: url("../data/img/bkg.png") center center repeat;
+	background-clip: cover;
+	width: 930px;
+	height: 100%;
+	margin-left: -15px;
+}

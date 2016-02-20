@@ -43,6 +43,7 @@ var game = {
 
         //set input below
 
+        me.pool.register("titleArrow", TitleArrow);
 
         me.game.viewport.setBounds(0, 0, 900, 600);
         me.state.change(me.state.MENU);

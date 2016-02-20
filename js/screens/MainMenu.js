@@ -11,6 +11,7 @@ game.MainMenuScreen = me.ScreenObject.extend({
 			'attack_button' : new me.ImageLayer(me.game.viewport.width/2-97.5, 375, { image: 'attack_button', repeat: 'no-repeat' }),
 			'about_button' : new me.ImageLayer(me.game.viewport.width/2-45, 425, { image: 'about_button', repeat: 'no-repeat' }),
 		};
+		this.titleArrow = new TitleArrow(me.game.viewport.width/2-150, 325);
 		// Order in which the menu items appear
 		this.menuItemKeys = [ 'play', 'timeattack', 'about'];
 		
@@ -26,15 +27,16 @@ game.MainMenuScreen = me.ScreenObject.extend({
 		me.game.world.addChild(this.images.play_button);
 		me.game.world.addChild(this.images.attack_button);
 		me.game.world.addChild(this.images.about_button);
-		me.game.world.addChild(new TitleArrow(me.game.viewport.width/2-150, 325));
+		me.game.world.addChild(this.titleArrow);
+		game.data.menuOP = 0;
 
-        me.input.bindKey(me.input.KEY.DOWN, 'down', true);
-        me.input.bindKey(me.input.KEY.UP, 'up', true);
-        me.input.bindKey(me.input.KEY.ENTER, 'enter', true);
+        me.input.bindKey(me.input.KEY.DOWN, 'down');
+        me.input.bindKey(me.input.KEY.UP, 'up');
+        me.input.bindKey(me.input.KEY.ENTER, 'enter');
 
-        me.input.bindKey(me.input.KEY.P, 'play', true);
-        me.input.bindKey(me.input.KEY.T, 'timeattack', true);
-        me.input.bindKey(me.input.KEY.A, 'about', true);
+        me.input.bindKey(me.input.KEY.P, 'play');
+        me.input.bindKey(me.input.KEY.T, 'timeattack');
+        me.input.bindKey(me.input.KEY.A, 'about');
 		
 		var self = this;
 		this.handler = me.event.subscribe(me.event.KEYDOWN, function(){
@@ -45,12 +47,6 @@ game.MainMenuScreen = me.ScreenObject.extend({
 
 	menuKeyHandler: function( action ) {
 		switch(action){
-			case 'up':
-				game.data.menuOP = game.data.menuOP == 0 ? 2 : game.data.menuOP - 1;
-				break;
-			case 'down':
-				game.data.menuOP = game.data.menuOP == 2 ? 0 : game.data.menuOP + 1;
-				break;
 			case 'enter':
 				this.menuKeyHandler( this.menuItemKeys[ game.data.menuOP ] );
 				break;
@@ -64,6 +60,12 @@ game.MainMenuScreen = me.ScreenObject.extend({
 				me.state.change(me.state.CREDITS);
 				break;
 		};
+	},
+
+	onUpdate : function() {
+		for ( i in this.images ) {
+			this.images[i].draw(me.video.renderer);
+		}
 	},
 
 	onDestroyEvent: function( ) {
