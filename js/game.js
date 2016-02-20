@@ -11,7 +11,7 @@ var game = {
                          wrapper : "game-container",
                          renderer : me.video.CANVAS,
                          scale : "auto",
-                         scaleMethod : "flex-height",
+                         scaleMethod : "fit",
                          doubleBuffering: true,
                         }))
         {
@@ -34,10 +34,11 @@ var game = {
     },
 
     "loaded": function() {
-       // me.state.set(me.state.TITLE, new game.TitleScreen());
+        me.state.set(me.state.TITLE, new game.TitleScreen());
         me.state.set(me.state.MAINMENU, new game.MainMenuScreen());
-        //me.state.set(me.state.TIME_ATTACK, new game.AttackSrceen());
-        //me.state.set(me.state.ABOUT, new game.AboutSrceen());
+        me.state.set(me.state.BASIC_GAME, new game.BasicGameScreen());
+        me.state.set(me.state.TIME_ATTACK, new game.TimeAttackScreen());
+        me.state.set(me.state.ABOUT, new game.AboutSrceen());
 
         //set input below
         //
