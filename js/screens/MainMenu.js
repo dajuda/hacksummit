@@ -5,12 +5,15 @@ game.MainMenuScreen = me.ScreenObject.extend({
 		this._super(me.ScreenObject, 'init');
 		this.selectedMenu = 0;
 		this.images = {
+			'background': new me.ImageLayer(0, 0, { image: 'main_background' }),
 			'title_label' : new me.ImageLayer((me.game.viewport.width/2)-297.5, 125, { image: 'title_label', repeat: 'no-repeat' }),
 			'play_button' : new me.ImageLayer((me.game.viewport.width/2)-31.5, 325, { image: 'play_button', repeat: 'no-repeat' }),
 			'attack_button' : new me.ImageLayer(me.game.viewport.width/2-97.5, 375, { image: 'attack_button', repeat: 'no-repeat' }),
 			'about_button' : new me.ImageLayer(me.game.viewport.width/2-45, 425, { image: 'about_button', repeat: 'no-repeat' }),
-			'background': new me.ImageLayer(0, 0, { image: 'main_background' }),
+			'arrow' : new me.ImageLayer(me.game.viewport.width/2-150, 325, { image: 'arrow', repeat: 'no-repeat', alwaysUpdate: true }),
 		};
+		// Order in which the menu items appear
+		this.menuItemKeys = [ 'play', 'timeattack', 'about'];
 		
 	},
 
@@ -24,25 +27,37 @@ game.MainMenuScreen = me.ScreenObject.extend({
 		me.game.world.addChild(this.images.play_button);
 		me.game.world.addChild(this.images.attack_button);
 		me.game.world.addChild(this.images.about_button);
+		me.game.world.addChild(this.images.arrow);
 
         me.input.bindKey(me.input.KEY.DOWN, 'down', true);
         me.input.bindKey(me.input.KEY.UP, 'up', true);
+        me.input.bindKey(me.input.KEY.ENTER, 'enter', true);
 
         me.input.bindKey(me.input.KEY.P, 'play', true);
         me.input.bindKey(me.input.KEY.T, 'timeattack', true);
         me.input.bindKey(me.input.KEY.A, 'about', true);
 		
-		this.handler = me.event.subscribe(me.event.KEYDOWN, this.menuKeyHandler);
+		var self = this;
+		this.handler = me.event.subscribe(me.event.KEYDOWN, function(){
+			self.menuKeyHandler.apply(self, arguments);
+		});
 
 	},
 
-	menuKeyHandler: function( action, keyCode, edge ) {
+	menuKeyHandler: function( action ) {
 		switch(action){
 			case 'up':
 				this.selectedMenu = this.selectedMenu == 0 ? 2 : this.selectedMenu - 1;
+				this.images.arrow.pos = {x: me.game.viewport.width/2-150, y: 325 + (50 * this.selectedMenu)};
+				this.onUpdate( this );
 				break;
 			case 'down':
 				this.selectedMenu = this.selectedMenu == 2 ? 0 : this.selectedMenu + 1;
+				this.images.arrow.pos = {x: me.game.viewport.width/2-150, y: 325 + (50 * this.selectedMenu)};
+				this.onUpdate( this );
+				break;
+			case 'enter':
+				this.menuKeyHandler( this.menuItemKeys[ this.selectedMenu ] );
 				break;
 			case 'play':
 				me.state.change(me.state.PLAY, 'play');
@@ -53,16 +68,24 @@ game.MainMenuScreen = me.ScreenObject.extend({
 			case 'about':
 				me.state.change(me.state.CREDITS);
 				break;
+		};
+	},
+
+	onUpdate : function( ) {
+		for( i in this.images ){
+			this.images[i].draw(me.video.renderer);
 		}
 	},
 
 	onDestroyEvent: function( ) {
         me.audio.stopTrack('theme');
-		me.game.world.removeChild();
-	},
 
-	play_button_click: function( event ) {
-		console.log('Playbutton click');
-		console.log(arguments);
+        me.input.unbindKey(me.input.KEY.DOWN);
+        me.input.unbindKey(me.input.KEY.UP);
+        me.input.unbindKey(me.input.KEY.ENTER);
+
+        me.input.unbindKey(me.input.KEY.P);
+        me.input.unbindKey(me.input.KEY.T);
+        me.input.unbindKey(me.input.KEY.A);
 	},
 });

@@ -4,6 +4,7 @@ game.PlayScreen = me.ScreenObject.extend({
 		this._super(me.ScreenObject, 'init');
 	},
 
-	onResetEvent: function( ) {
-	}
+	onResetEvent: function( type ) {
+		console.log('Play', type);
+	},
 });
