@@ -11,7 +11,7 @@ var game = {
                          wrapper : "game-container",
                          renderer : me.video.CANVAS,
                          scale : "auto",
-                         scaleMethod : "flex-height",
+                         scaleMethod : "fit",
                          doubleBuffering: true,
                         }))
         {
