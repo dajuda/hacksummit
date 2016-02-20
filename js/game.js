@@ -18,7 +18,10 @@ var game = {
             return;
         }
     
-        me.audio.init("mp3,ogg");
+        if(!me.audio.init("mp3,ogg")){
+            alert("Sorry but yout browser does not support html 5 audio!");
+            return;
+        }
 
         me.loader.onload = this.loaded.bind(this);
         me.loader.preload(game.resources);

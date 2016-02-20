@@ -12,4 +12,6 @@ game.resources = [
 	{ name: 'attack_button', 	type: 'image', 	src: 'data/img/attack_btn.png' 			},
 	{ name: 'about_button', 	type: 'image', 	src: 'data/img/about_btn.png' 			},
 	{ name: 'facebook_button', 	type: 'image', 	src: 'data/img/fb_btn.png' 				},
+    // Audio
+    { name: 'theme',            type: 'audio',  src: 'data/sfx/'},
 ]

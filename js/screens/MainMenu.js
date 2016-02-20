@@ -1,6 +1,7 @@
 game.MainMenuScreen = me.ScreenObject.extend({
 
 	init: function( ) {
+        me.audio.play('theme', true);
 		this._super(me.ScreenObject, 'init');
 		this.images = {
 			'title_label' : new me.ImageLayer((me.game.viewport.width/2)-297.5, 150, { image: 'title_label', repeat: 'no-repeat' }),
@@ -21,6 +22,7 @@ game.MainMenuScreen = me.ScreenObject.extend({
 	},
 
 	onDestroyEvent: function( ) {
+        me.audio.stopTrack('theme');
 		me.game.world.removeChild();
 	},
 });
