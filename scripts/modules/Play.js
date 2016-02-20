@@ -7,17 +7,8 @@ define( [ 'app/modules/Sign' ], function( Sign ){
 		};
 
 		this.loadView = function( container ) {
-			var gifs = Sign.getRandomGifs(1);
-			if( gifs.length !== undefined ){
-				console.log(gifs);
-			}else{
-				gifs.then(function( data ) {
-					console.log('gifs data', data);
-					gifs = self.chooseRandomN( n, data);
-				}, function( error) {
-					console.log('gifs error', error);
-				});
-			}
+			var gifs = Sign.getRandomGifs(3);
+			console.log(gifs);
 		};
 
 		this.loadTemplate = function( container ) {

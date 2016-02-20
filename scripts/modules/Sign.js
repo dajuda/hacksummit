@@ -1,34 +1,36 @@
-define( [ ], function(){
+define( [ 'app/modules/Gifs' ], function( Gifs ) {
 
 	var self = {};
-
-	self.cache = {};
 	self.imageCount = {};
 
 	self.getRandomGifs = function( n ) {
-		if( self.cache.hasOwnProperty('gifs') ){
-			return chooseRandomN( n, self.cache.gifs );
-		}else{
-			return $.ajax({
-				url: '/gifs.json',
-				type: 'GET',
-				local: true,
-				cache: true,
-				success: function(data){
-					console.log('getRandomGifs ajax', data);
-					self.cache.gifs = gifs;
-				}
-			});
-		}
+		console.log(Gifs);
+		return self.chooseRandomN( n, Gifs );
 	};
 
 	self.chooseRandomN = function( n, array ) {
-		var itens = [];
-		for ( var i = n; i > 0; i-- ) {
-			itens.push(array[Math.floor(Math.random()*array.length)]);
+		var itens = [],
+			pushedIndexes = [],
+			random;
+		
+		if( n > array.length ){
+			console.error("Tried getting more than there was in the array");
+			return array;
 		}
-		if( n != itens.length )
-			console.error('chooseRandomN escolhendo numero errado de itens');
+
+		for ( var i = array.length; i >= 0; i-- ) {
+			
+			random = Math.floor(Math.random()*array.length);
+
+			if( pushedIndexes.indexOf(random) === -1 ) {
+
+				pushedIndexes.push(random);
+				itens.push(array[random]);
+
+				if(itens.length == n)
+					break;
+			}
+		}
 		return itens;
 	};
 
