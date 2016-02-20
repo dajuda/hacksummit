@@ -11,6 +11,7 @@ game.PlayScreen = me.ScreenObject.extend({
 
 	onResetEvent: function( type ) {
 		console.log('Play', type);
+		me.game.world.addChild(this.images.background);
 		me.game.world.addChild(this.images.stage1_label);
 	},
 });

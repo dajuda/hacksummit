@@ -2,7 +2,8 @@ var game = {
     data: {
         score : 0,
         start : false,
-        newHiScore : false
+        newHiScore : false,
+        menuOP: 0,
     },
 
     "onload": function() {

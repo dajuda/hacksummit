@@ -13,6 +13,6 @@ var TitleArrow = me.Entity.extend({
 	},
 
 	update: function( dt ) {
-		//this.pos.
+		this.pos = { x : me.game.viewport.width/2-150, y : 325 + (50 * game.data.menuOP ) };
 	}
 });
