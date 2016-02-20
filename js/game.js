@@ -41,7 +41,7 @@ var game = {
         me.state.set(me.state.CREDITS, new game.AboutScreen());
 
         //set input below
-        //
+
 
         me.game.viewport.setBounds(0, 0, 900, 600);
         me.state.change(me.state.MENU);
