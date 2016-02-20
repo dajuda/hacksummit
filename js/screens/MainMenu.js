@@ -10,7 +10,6 @@ game.MainMenuScreen = me.ScreenObject.extend({
 			'play_button' : new me.ImageLayer((me.game.viewport.width/2)-31.5, 325, { image: 'play_button', repeat: 'no-repeat' }),
 			'attack_button' : new me.ImageLayer(me.game.viewport.width/2-97.5, 375, { image: 'attack_button', repeat: 'no-repeat' }),
 			'about_button' : new me.ImageLayer(me.game.viewport.width/2-45, 425, { image: 'about_button', repeat: 'no-repeat' }),
-			'arrow' : new me.ImageLayer(me.game.viewport.width/2-150, 325, { image: 'arrow', repeat: 'no-repeat', alwaysUpdate: true }),
 		};
 		// Order in which the menu items appear
 		this.menuItemKeys = [ 'play', 'timeattack', 'about'];
@@ -27,7 +26,6 @@ game.MainMenuScreen = me.ScreenObject.extend({
 		me.game.world.addChild(this.images.play_button);
 		me.game.world.addChild(this.images.attack_button);
 		me.game.world.addChild(this.images.about_button);
-		//me.game.world.addChild(this.images.arrow);
 		me.game.world.addChild(new TitleArrow(me.game.viewport.width/2-150, 325));
 
         me.input.bindKey(me.input.KEY.DOWN, 'down', true);
