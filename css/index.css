@@ -105,19 +105,21 @@ footer{
 
 .question-field {
 	height: 90px;
+	cursor: default;
 	box-sizing: border-box;
 	padding: 20px;
-	background-color: #F0F0F0;
-	margin: 20px 0;
 	padding-bottom: 10px;
 	border-radius: 5px;
-	cursor: default;
+	background-color: #F0F0F0;
 	box-shadow: 5px 5px #CCC;
 }
 
 .question-text {
-	text-decoration: underline;
 	font-size: 2.5em;
+}
+
+.question-text strong {
+	text-decoration: underline;
 }
 
 .seleciona-img img{
