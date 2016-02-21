@@ -126,7 +126,7 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 		}
 
 		function showResult( type ) {
-			$('#question_result, #answer_'+type).fadeIn(500).delay(1000).fadeOut(400);
+			$('#question_result, #answer_'+type).delay(300).fadeIn(200).delay(900).fadeOut(200);
 			self[type+'_music'].play();
 			self.lock = true;
 			self._score += self.scoreChange[type];

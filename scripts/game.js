@@ -1,5 +1,5 @@
-define([ 'jquery', 'app/modules/Play', 'app/modules/Library', 'app/modules/About' ], 
-function( $, Play, Library, About ) {
+define([ 'jquery', 'app/modules/Play', 'app/modules/Library', 'app/modules/About', 'app/modules/Gameover' ], 
+function( $, Play, Library, About, Gameover ) {
 
 	var self = {};
 
@@ -17,6 +17,7 @@ function( $, Play, Library, About ) {
 			'play': Play.createPlay( self ),
 			'library': Library.createLibrary( self ),
 			'about': About.createAbout( self ),
+			'gameover' : Gameover.createGameover( self ),
 			'index': {
 				loadView: loadIndex,
 			}

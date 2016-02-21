@@ -10,12 +10,13 @@ define( [], function(){
 		this.loadView = function( container ) {
 			require(['hbs!../templates/gameover'], function( template ) {
 				$(container).html(template(self.templateData));
+				self._parent.background_music.play();
 			});
 		};
 	}
 
 	return {
-		createLibrary: function( parent ) {
+		createGameover: function( parent ) {
 			return new GameOver( parent );
 		}
 	}
