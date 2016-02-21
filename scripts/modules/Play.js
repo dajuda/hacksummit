@@ -11,22 +11,11 @@ define( [ 'jquery', 'app/modules/Sign' ], function( $, Sign ){
 		};
 
 		this.loadView = function( container ) {
-			var gifs = Sign.getRandomGifs(3),
-			id = 'threeRandom'+(self._playcount++);
-			self.templateData.gifs = gifs;
-			for( i in gifs ) {
-				console.log(gifs[i]);
-				Sign.loadImage(gifs[i].url, function( dataURL ){ self.gifLoad( dataURL, i );}, id);
+			self.templateData.gifs = Sign.getRandomGifs(3);
+			for( i in self.templateData.gifs ) {
+				Sign.loadImage(gifs[i].url);
 			}
-		};
-
-		this.gifLoad = function( dataURL, index ) {
-
-			self.templateData.gifs[i].url = dataURL;
-
-			console.log(Sign.imageCount[id], index);
-			if( Sign.imageCount[id] == index)
-				self.loadTemplate( container );
+			self.loadTemplate( container );
 		};
 
 		this.loadTemplate = function( container ) {

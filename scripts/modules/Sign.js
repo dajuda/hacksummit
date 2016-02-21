@@ -37,27 +37,15 @@ define( [ 'app/modules/Gifs' ], function( Gifs ) {
 	self.loadImage = function( url, callback, id ) {
 		id = id || 'any';
 		var img = new Image();
-		$(img).on('load', function( ) {
+		img.onload = function( ) {
 			
-	        var canvas = document.createElement('CANVAS'),
-	        	ctx = canvas.getContext('2d'),
-	        	dataURL;
-	        console.log('canvas', canvas);
-	        canvas.height = this.height;
-	        canvas.width = this.width;
-	        ctx.drawImage(this, 0, 0);
-	        dataURL = canvas.toDataURL(outputFormat);
-	        canvas = null; 
-
 			if( !self.imageCount.hasOwnProperty(id))
 				self.imageCount[id] = 0;
 			self.imageCount[id]++;
 
-			console.log('callback', callback);
-
 			if( typeof( callback ) === 'function')
-				callback(dataURL);
-		});
+				callback(Image);
+		}
 		img.scr = url;
 		return img;
 	}
