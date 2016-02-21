@@ -3,9 +3,9 @@ define( [ 'app/modules/Gifs', 'app/modules/Questions' ], function( Gifs, Questio
 	var self = {};
 	self.imageCount = {};
 
-	self.getRandomGifs = function( n ) {
+	self.getRandomGifs = function( n, except ) {
 		console.log(Gifs);
-		return self.chooseRandomN( n, Gifs );
+		return self.chooseRandomN( n, Gifs, except );
 	};
 
 	self.getRandomQuestion = function( ){
@@ -13,7 +13,7 @@ define( [ 'app/modules/Gifs', 'app/modules/Questions' ], function( Gifs, Questio
 		return self.chooseRandomN( 1, Questions )[0];
 	}
 
-	self.chooseRandomN = function( n, array ) {
+	self.chooseRandomN = function( n, array, except ) {
 		var itens = [],
 			pushedIndexes = [],
 			random;
@@ -26,6 +26,11 @@ define( [ 'app/modules/Gifs', 'app/modules/Questions' ], function( Gifs, Questio
 		for ( var i = array.length; i >= 0; i-- ) {
 
 			random = Math.floor(Math.random()*array.length);
+
+			if ( except !== undefined ){
+				if( array[random].name === except )
+					continue;
+			}
 
 			if( pushedIndexes.indexOf(random) === -1 ) {
 

@@ -1,7 +1,7 @@
 define( [], function(){
 
 	var questions = [
-		{ value: 'Today I went to the <strong>doctor</strong>', correct: 'cat', url: 'data/img/signs/'},
+		{ value: 'Today I went to the <strong>doctor</strong>', correct: 'doctor', url: 'data/img/signs/doctor.gif'},
 	];
 
 	return questions;
