@@ -11,6 +11,7 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 			'wrong': -20,
 			'skip': -10,
 		};
+		this.lock = false;
 
 		this.templateLoaded = function( ) {
 			console.log('Play template Loaded');
@@ -33,6 +34,12 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 				$('.btn-close-help').on('click', closeHelpModal);
 
 				$('.play-content .seleciona-img').on('click', selectImage);
+				$('.img-row').slideDown();
+
+				setTimeout(function(){
+					$('.question-field').removeClass('in'); 
+					$('.img-row').addClass('in');
+				}, 500);
 			});
 		};
 
@@ -50,6 +57,8 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 				Sign.loadImage(gifs[i].url);
 			}
 			self.loadTemplate( container );
+			self.lock = false;
+
 		}
 
 		function goBack( event ) {
@@ -58,20 +67,25 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 		}
 
 		function selectImage( event ) {
+			if( self.lock )
+				return;
 			event.preventDefault();
 			$('.play-content .seleciona-img').removeClass('selected');
 			$(this).addClass('selected');
 		}
 
 		function openHelp( event ) {
+			if( self.lock )
+				return;
 			event.preventDefault();
-			//$('#help_modal').modal('show');
 			$('#help_modal').modal();
 			console.log("Help wanted");
 		}
 
 		function skipQuestion( event ) {
 			event.preventDefault();
+			if( self.lock )
+				return;
 			self._score += self.scoreChange.skip;
 			newQuestion('#main-content');
 		}
@@ -83,12 +97,15 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 
 		function confirmQuestion( event ) {
 			event.preventDefault();
+			if( self.lock )
+				return;
 			var selected = getSelectedAnswer();
 			if ( selected !== undefined){
+				console.log( selected, self.correct_gif.name );
 				if ( selected == self.correct_gif.name )
-					showResult('correct_lbl');
+					showResult('correct');
 				else
-					showResult('wrong_lbl');
+					showResult('wrong');
 			}else{
 				window.alert('Please select an answer');
 			}
@@ -99,6 +116,12 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 		}
 
 		function showResult( type ) {
+			$('#question_result, #answer_'+type).fadeIn(400).delay(2000).fadeOut(400);
+			self.lock = true;
+			self._score += self.scoreChange[type];
+			$('.question-field').addClass('out');
+			$('.img-row').removeClass('in');
+			setTimeout(function(){newQuestion('#main-content');}, 2000);
 		}
 
 	}
