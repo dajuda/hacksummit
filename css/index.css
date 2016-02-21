@@ -202,11 +202,19 @@ footer p {
 	text-align: center;
 }
 
-.learn-card .card{
+.learn-card .card {
 	margin: 15px;
 	height: 250px;
 }
 
-.learn-card .lead{
+.learn-card .lead {
 	font-size: 3em;
+}
+
+.instruction-row {
+	visibility: visible;
+}
+
+.instruction-row.out {
+	visibility: hidden;
 }

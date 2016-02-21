@@ -60,6 +60,7 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap', 'odometer' ], function( $, 
 				setTimeout(function(){
 					$('.question-field').removeClass('in'); 
 					$('.img-row').addClass('in');
+					$('.instruction-row').removeClass('out');
 					$('.odometer').html(self._score);
 					self.lastScore = self._score;
 				}, 500);
@@ -154,6 +155,7 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap', 'odometer' ], function( $, 
 
 		function showResult( type ) {
 			$('#question_result, #answer_'+type).delay(300).fadeIn(200).delay(900).fadeOut(200);
+			$('.instruction-row').addClass('out');
 			self[type+'_music'].play();
 			self.lock = true;
 			self._score += self.scoreChange[type];
