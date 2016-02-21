@@ -1,1 +1,12 @@
-<div><button class="btn btn-default" id="back_button">Back</button><h2>Library</h2></div>
+<div><button class="btn btn-default" id="back_button">Back</button>
+  <h2>Library</h2>
+	<div class="row">
+		{{#each gifs}}
+		<div class="col-lg-4 seleciona-img" data-id="{{name}}"><img src="{{url}}" height="220" />
+      <p>{{ label }}</p>
+    </div>
+		{{/each}}
+	</div>
+
+</div>
+

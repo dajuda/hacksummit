@@ -3,6 +3,11 @@ define( [ 'app/modules/Gifs', 'app/modules/Questions' ], function( Gifs, Questio
 	var self = {};
 	self.imageCount = {};
 
+	self.getAllGifs = function( ) {
+		console.log(Gifs);
+		return Gifs;
+	};
+
 	self.getRandomGifs = function( n, except ) {
 		console.log(Gifs);
 		return self.chooseRandomN( n, Gifs, except );
