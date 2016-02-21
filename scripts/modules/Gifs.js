@@ -38,7 +38,7 @@ define( [ ], function( ) {
 		{ url: 'data/img/signs/president.gif',      name: 'president', 	label: 'President'	},
 		{ url: 'data/img/signs/program.gif',        name: 'program', 	label: 'Program'	},
 		{ url: 'data/img/signs/progress.gif',       name: 'progress',	label: 'Progress'	},
-		{ url: 'data/img/signs/putaway.gif',       	name: 'putaway',	label: 'Put Away'	},
+		{ url: 'data/img/signs/put-away.gif',       name: 'put-away',	label: 'Put Away'	},
 		{ url: 'data/img/signs/rude.gif',       	name: 'rude',		label: 'Rude'		},
 		{ url: 'data/img/signs/shirt.gif',       	name: 'shirt',		label: 'Shirt'		},
 		{ url: 'data/img/signs/shower.gif',         name: 'shower', 	label: 'Shower'		},
