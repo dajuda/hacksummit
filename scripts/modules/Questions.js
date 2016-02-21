@@ -13,7 +13,7 @@ define( [], function(){
 		{ value: 'which is the <strong>program</strong> today?',            correct: 'program',     url: 'data/img/signs/program.gif'},
 		{ value: 'Have you got some <strong>progress</strong>?',            correct: 'progress',    url: 'data/img/signs/progress.gif'},
 		{ value: 'Is the <strong>shower</strong> working?',                 correct: 'shower',      url: 'data/img/signs/shower.gif'},
-		{ value: 'This <strong>singer</strogn> has a great voice.',         correct: 'singer',      url: 'data/img/signs/singer.gif'},
+		{ value: 'This <strong>singer</strong> has a great voice.',         correct: 'singer',      url: 'data/img/signs/singer.gif'},
 		{ value: 'Please <strong>sit</strong> down.',                       correct: 'sit',         url: 'data/img/signs/sit.gif'},
 		{ value: '<strong>Sorry</strong> about that.',                      correct: 'sorry',       url: 'data/img/signs/sorry.gif'},
 		{ value: 'Do you <strong>speak</strong> well in public?',           correct: 'speak',       url: 'data/img/signs/speak.gif'},
