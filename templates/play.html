@@ -3,14 +3,14 @@
 		<div class="col-lg-4 gamescore">
 			<button class="btn btn-default" id="back_button">Back (Forfeit)</button>
 			<div id="gamescore">
-				Score: <strong>{{ gamescore }}000</strong>
+				Score: <strong>{{ gamescore }}</strong>
 			</div>
 		</div>
 		<div class="col-lg-4">
 			<h2>Question</h2>
 		</div>
 		<div class="col-lg-4">
-			<img src="data/img/play/help_btn.png" id="help_btn" class="help_btn">
+			<img src="data/img/play/help_btn.png" id="help_btn" class="help_btn" />
 		</div>
 	</div>
 	<div class="row">
@@ -19,19 +19,44 @@
 		</div>
 	</div>
 	<div class="row">
-		<h3>Please select one image below that represents the bold underscored word:</h3>
+		<h3>Which image below represents the bold underscored word?</h3>
+		<p class="obs">Click to select a image, then confirm.</p>
 	</div>
 	<div class="row">
 		{{#each gifs}}
-		<div class="col-lg-4 seleciona-img"><img src="{{url}}" /></div>
+		<div class="col-lg-4 seleciona-img" data-id="{{name}}"><img src="{{url}}" /></div>
 		{{/each}}
 	</div>
 	<div class="row play-actions">
-		<div class="col-lg-3 col-lg-offset-3">
-			<button class="btn btn-default btn-lg btn-danger">Skip</button>
+		<div class="col-lg-2 col-lg-offset-3">
+			<button class="btn btn-default btn-lg btn-danger" id="btn_skip">Skip</button>
 		</div>
-		<div class="col-lg-3">
-			<button class="btn btn-default btn-lg btn-success">Confirm</button>
+		<div class="col-lg-2">
+			<button class="btn btn-default btn-lg btn-success" id="btn_confirm">Confirm</button>
+		</div>
+		<div class="col-lg-2">
+			<button class="btn btn-default btn-lg btn-info" id="btn_confirm">Finish Game</button>
 		</div>
 	</div>
 </div>
+<div class="modal fade" tabindex="-1" id="help_modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-close-help" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">How to Play</h4>
+      </div>
+      <div class="modal-body">
+      	<p class="text-left"><strong>Objective</strong>: Maintain your score above 0.</p>
+      	<p class="text-left">Each time you answer correct your score inscreases by 10.</p>
+      	<p class="text-left">Each time you answer wrong your score decreases by 20.</p>
+      	<p class="text-left">If you choose to skip the question, your score decreases by 10.</p>
+      	<p class="text-left">Every 3 question (no matter if you skip or miss) a card with a word and a gif of a gesture will apear.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-primary btn-close-help">I Understand</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div id="question_result" class="hide"><img /></div>

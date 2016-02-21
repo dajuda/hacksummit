@@ -1,4 +1,4 @@
-define([ 'jquery', 'app/modules/Play' ], function( $, Play ){
+define([ 'jquery', 'app/modules/Play' ], function( $, Play ) {
 
 	var self = {};
 
