@@ -32,7 +32,7 @@ define( [ 'jquery', 'app/modules/Sign' ], function( $, Sign ){
 					event.preventDefault();
 					$('.play-content .seleciona-img').removeClass('selected');
 					$(this).addClass('selected');
-				})
+				});
 			});
 		};
 

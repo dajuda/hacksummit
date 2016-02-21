@@ -6,7 +6,7 @@ define([ 'jquery', 'app/modules/Play' ], function( $, Play ){
 	function run() {
 		
 		defineViews();
-
+		startAudio();
 		loadIndex();
 
 	}
@@ -20,6 +20,12 @@ define([ 'jquery', 'app/modules/Play' ], function( $, Play ){
 				loadView: loadIndex,
 			}
 		};
+	}
+
+	function startAudio( ) {
+		self.background_music = $('#background_music')[0];
+		self.background_music.volume = 0.1;
+		self.background_music.play();
 	}
 
 	self.loadView = function( page ) {
