@@ -13,10 +13,6 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 		};
 		this.lock = false;
 
-		this.templateLoaded = function( ) {
-			console.log('Play template Loaded');
-		};
-
 		this.loadView = function( container ) {
 			self._score = 100;
 			newQuestion( container );
@@ -87,7 +83,7 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 			if( self.lock )
 				return;
 			self._score += self.scoreChange.skip;
-			newQuestion('#main-content');
+			continuePlaying();
 		}
 
 		function closeHelpModal( event ) {
@@ -119,6 +115,10 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 			$('#question_result, #answer_'+type).fadeIn(400).delay(2000).fadeOut(400);
 			self.lock = true;
 			self._score += self.scoreChange[type];
+			continuePlaying();
+		}
+
+		function continuePlaying( ) {
 			$('.question-field').addClass('out');
 			$('.img-row').removeClass('in');
 			setTimeout(function(){newQuestion('#main-content');}, 2000);

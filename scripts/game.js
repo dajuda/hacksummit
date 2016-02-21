@@ -1,4 +1,5 @@
-define([ 'jquery', 'app/modules/Play' ], function( $, Play ) {
+define([ 'jquery', 'app/modules/Play', 'app/modules/Library', 'app/modules/About' ], 
+function( $, Play, Library, About ) {
 
 	var self = {};
 
@@ -14,7 +15,8 @@ define([ 'jquery', 'app/modules/Play' ], function( $, Play ) {
 	function defineViews( ) {
 		self.dataView = {
 			'play': Play.createPlay( self ),
-			//'about': About.createAbout(),
+			'library': Library.createLibrary( self ),
+			'about': About.createAbout( self ),
 			'index': {
 				loadView: loadIndex,
 			}
@@ -23,7 +25,7 @@ define([ 'jquery', 'app/modules/Play' ], function( $, Play ) {
 
 	function startAudio( ) {
 		self.background_music = $('#background_music')[0];
-		self.background_music.volume = 0.1;
+		self.background_music.volume = 0.05;
 		self.background_music.play();
 	}
 
