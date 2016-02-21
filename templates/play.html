@@ -14,15 +14,15 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 question-field">
+		<div class="col-lg-8 col-lg-offset-2 question-field in">
 			<div class="question-text">{{{ question.value }}}</div>
 		</div>
 	</div>
 	<div class="row">
 		<h3>Which image below represents the bold underscored word?</h3>
-		<p class="obs">Click to select a image, then confirm.</p>
+		<p class="obs">Click to select an image, then confirm.</p>
 	</div>
-	<div class="row">
+	<div class="row img-row">
 		{{#each gifs}}
 		<div class="col-lg-4 seleciona-img" data-id="{{name}}"><img src="{{url}}" /></div>
 		{{/each}}
@@ -59,4 +59,7 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<div id="question_result" class="hide"><img /></div>
+<div id="question_result" class="question-result">
+	<img id="answer_correct" src="data/img/play/correct_lbl.png"/>
+	<img id="answer_wrong" src="data/img/play/wrong_lbl.png"/>
+</div>

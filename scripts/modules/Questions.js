@@ -10,7 +10,7 @@ define( [], function(){
 		{ value: 'The book is <strong>on</strong> the table',               correct: 'on',          url: 'data/img/signs/on.gif'},
 		{ value: 'Call the <strong>police</strong>!',                       correct: 'police',      url: 'data/img/signs/police.gif'},
 		{ value: 'Obama is the current US <strong>president.</strong>',     correct: 'president',   url: 'data/img/signs/president.gif'},
-		{ value: 'which is the <strong>program</strong> today?',            correct: 'program',     url: 'data/img/signs/program.gif'},
+		{ value: 'Which is the <strong>program</strong> today?',            correct: 'program',     url: 'data/img/signs/program.gif'},
 		{ value: 'Have you got some <strong>progress</strong>?',            correct: 'progress',    url: 'data/img/signs/progress.gif'},
 		{ value: 'Is the <strong>shower</strong> working?',                 correct: 'shower',      url: 'data/img/signs/shower.gif'},
 		{ value: 'This <strong>singer</strong> has a great voice.',         correct: 'singer',      url: 'data/img/signs/singer.gif'},
