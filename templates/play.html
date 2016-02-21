@@ -1,7 +1,7 @@
 <div class="play-content">
 	<div class="row">
 		<div class="col-lg-4 gamescore">
-			<button class="btn btn-default" id="back_button">Back (Forfeit)</button>
+			<button class="btn btn-default" id="back_button">Back (Quit Game)</button>
 			<div id="gamescore">
 				Score: <strong>{{ gamescore }}</strong>
 			</div>
@@ -24,7 +24,7 @@
 	</div>
 	<div class="row img-row">
 		{{#each gifs}}
-		<div class="col-lg-4 seleciona-img" data-id="{{name}}"><img src="{{url}}" /></div>
+		<div class="col-lg-4 seleciona-img" data-id="{{name}}"><img src="{{url}}" height="220" /></div>
 		{{/each}}
 	</div>
 	<div class="row play-actions">
@@ -35,7 +35,7 @@
 			<button class="btn btn-default btn-lg btn-success" id="btn_confirm">Confirm</button>
 		</div>
 		<div class="col-lg-2">
-			<button class="btn btn-default btn-lg btn-info" id="btn_confirm">Finish Game</button>
+			<button class="btn btn-default btn-lg btn-info" id="btn_finish">Finish Game</button>
 		</div>
 	</div>
 </div>

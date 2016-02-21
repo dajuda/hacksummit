@@ -15,6 +15,8 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 
 		this.loadView = function( container ) {
 			self._score = 100;
+			self._parent.background_music.pause();
+			
 			newQuestion( container );
 		};
 
@@ -26,11 +28,23 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 				$('#help_btn').on('click', openHelp);
 				$('#btn_skip').on('click', skipQuestion);
 				$('#btn_confirm').on('click', confirmQuestion);
+				$('#btn_finish').on('click', gameover);
 
 				$('.btn-close-help').on('click', closeHelpModal);
 
 				$('.play-content .seleciona-img').on('click', selectImage);
 				$('.img-row').slideDown();
+
+
+				self.play_music = $('#play_music')[0];
+				self.wrong_music = $('#miss_music')[0];
+				self.correct_music = $('#correct_music')[0];
+
+				self.play_music.volume = 0.1;
+				self.wrong_music.volume = 0.2;
+				self.correct_music.volume = 0.2;
+
+				self.play_music.play();
 
 				setTimeout(function(){
 					$('.question-field').removeClass('in'); 
@@ -83,7 +97,7 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 			if( self.lock )
 				return;
 			self._score += self.scoreChange.skip;
-			continuePlaying();
+			continuePlaying( true );
 		}
 
 		function closeHelpModal( event ) {
@@ -112,16 +126,27 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 		}
 
 		function showResult( type ) {
-			$('#question_result, #answer_'+type).fadeIn(400).delay(2000).fadeOut(400);
+			$('#question_result, #answer_'+type).fadeIn(500).delay(1000).fadeOut(400);
+			self[type+'_music'].play();
 			self.lock = true;
 			self._score += self.scoreChange[type];
 			continuePlaying();
 		}
 
-		function continuePlaying( ) {
+		function continuePlaying( skipping ) {
+			if ( self._score <= 0 ) {
+				gameover();
+				return;
+			}
+			skipping = skipping || false;
 			$('.question-field').addClass('out');
 			$('.img-row').removeClass('in');
-			setTimeout(function(){newQuestion('#main-content');}, 2000);
+			setTimeout(function(){newQuestion('#main-content');}, skipping? 1000 : 2000);
+		}
+
+		function gameover(){
+			self._parent.gamescore = self._score;
+			self._parent.loadView('gameover');
 		}
 
 	}

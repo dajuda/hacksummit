@@ -40,6 +40,7 @@ function( $, Play, Library, About ) {
 				event.preventDefault();
 				self.loadView($(this).attr('id'));
 			});
+			self.background_music.play();
 		});
 	}
 
