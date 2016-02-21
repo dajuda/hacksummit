@@ -4,17 +4,16 @@ define([ 'jquery', 'app/modules/Play' ], function( $, Play ){
 
 	// Only to group initializing actions
 	function run() {
-
-		self.Play = Play.createPlay();
 		
 		defineViews();
-		console.log('game');
+
 		loadIndex();
+
 	}
 
 	function defineViews( ) {
 		self.dataView = {
-			'play': Play.createPlay(),
+			'play': Play.createPlay( self ),
 			//'timeattack': TimeAttack.createAttack(),
 			//'about': About.createAbout(),
 			'index': {
@@ -23,8 +22,8 @@ define([ 'jquery', 'app/modules/Play' ], function( $, Play ){
 		};
 	}
 
-	function loadView( page ) {
-		self.dataView[page].loadView('#main-content');
+	self.loadView = function( page ) {
+		self.dataView[page].loadView('#main-content', 'index');
 	}
 
 	function loadIndex( container ) {
@@ -32,7 +31,7 @@ define([ 'jquery', 'app/modules/Play' ], function( $, Play ){
 			$(container).html(template({}));
 			$('.main-menu-itens li').on('click', function( event ) {
 				event.preventDefault();
-				loadView($(this).attr('id'));
+				self.loadView($(this).attr('id'));
 			});
 		});
 	}
