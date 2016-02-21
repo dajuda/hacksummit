@@ -11,13 +11,27 @@ define( [ 'jquery', 'app/modules/Sign' ], function( $, Sign ){
 		};
 
 		this.loadView = function( container ) {
-			var gifs = Sign.getRandomGifs(3);
-			self.loadTemplate( container );
+			var gifs = Sign.getRandomGifs(3),
+			id = 'threeRandom'+(self._playcount++);
+			self.templateData.gifs = gifs;
+			for( i in gifs ) {
+				console.log(gifs[i]);
+				Sign.loadImage(gifs[i].url, function( dataURL ){ self.gifLoad( dataURL, i );}, id);
+			}
+		};
+
+		this.gifLoad = function( dataURL, index ) {
+
+			self.templateData.gifs[i].url = dataURL;
+
+			console.log(Sign.imageCount[id], index);
+			if( Sign.imageCount[id] == index)
+				self.loadTemplate( container );
 		};
 
 		this.loadTemplate = function( container ) {
 			require(['hbs!../templates/play'], function( template ) {
-				$('#main-content').html(template(this.templateData));
+				$('#main-content').html(template(self.templateData));
 				console.log(self._parent);
 				$('#back_button').on('click', function( event ) {
 					event.preventDefault();

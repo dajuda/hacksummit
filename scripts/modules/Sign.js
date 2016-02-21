@@ -19,7 +19,7 @@ define( [ 'app/modules/Gifs' ], function( Gifs ) {
 		}
 
 		for ( var i = array.length; i >= 0; i-- ) {
-			
+
 			random = Math.floor(Math.random()*array.length);
 
 			if( pushedIndexes.indexOf(random) === -1 ) {
@@ -36,18 +36,30 @@ define( [ 'app/modules/Gifs' ], function( Gifs ) {
 
 	self.loadImage = function( url, callback, id ) {
 		id = id || 'any';
-		var Image = new Image();
-		Image.onload = function( ) {
+		var img = new Image();
+		$(img).on('load', function( ) {
 			
+	        var canvas = document.createElement('CANVAS'),
+	        	ctx = canvas.getContext('2d'),
+	        	dataURL;
+	        console.log('canvas', canvas);
+	        canvas.height = this.height;
+	        canvas.width = this.width;
+	        ctx.drawImage(this, 0, 0);
+	        dataURL = canvas.toDataURL(outputFormat);
+	        canvas = null; 
+
 			if( !self.imageCount.hasOwnProperty(id))
 				self.imageCount[id] = 0;
 			self.imageCount[id]++;
 
+			console.log('callback', callback);
+
 			if( typeof( callback ) === 'function')
-				callback();
-		}
-		Image.scr = url;
-		return $('<img src="'+url+'" />');
+				callback(dataURL);
+		});
+		img.scr = url;
+		return img;
 	}
 
 	return self;
