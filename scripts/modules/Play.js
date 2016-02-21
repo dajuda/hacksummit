@@ -28,9 +28,8 @@ define( [ 'jquery', 'app/modules/Sign' ], function( $, Sign ){
 					self._parent.loadView('index');
 				});
 				$('#help_btn').on('click', function( event ) {
-					event.preventDefault();
-                    $('#helpModal').show()
 					console.log("Help wanted");
+					event.preventDefault();
 				});
 				$('.play-content .seleciona-img').on('click', function( event ) {
 					console.log('seleciona img');
