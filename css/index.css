@@ -73,12 +73,12 @@ footer p {
 	font-size: 3em;
 	font-weight: bold;
 	width: 210px;
-
+	transition: background-color 0.5s, color 0.5s;
+	border-radius: 10px;
 }
 
 .main-menu-itens li:hover {
 	background-color: #222;
-	border-radius: 10px;
 	color: #FFF;
 }
 
@@ -144,21 +144,21 @@ footer p {
 	display: none;
 }
 
-.question-result img{
+.question-result img {
 	display: none;
 }
 
-.img-row{
+.img-row {
 	height: 0;
 	transition: height 0.5s;
 	overflow: hidden;
 }
 
-.img-row.in{
+.img-row.in {
 	height: 230px;
 }
 
-.seleciona-img img{
+.seleciona-img img {
 	min-width: 180px;
 	min-height: 200px;
 	padding: 5px;
@@ -166,25 +166,40 @@ footer p {
 	cursor: pointer;
 	box-shadow: 5px 5px #CCC;
 	border-radius: 5px;
+	transition: background 0.5s, box-shadow 0.5s;
 }
 
 .seleciona-img {
 	text-align: center;
 }
 
-.play-content .selected img{
+.play-content .selected img {
 	background-color: #439BFF;
 	box-shadow: 5px 5px #436AFF;
 }
 
-.gamescore{
+.gamescore {
 	font-size: 2em;
 	text-align: left;
 }
 
-.play-actions{
+.play-actions {
 	background-color: #F0F0F0;
 	padding: 10px 0;
 	border-radius: 5px; 
 	box-shadow: 5px 5px #CCC; 
+}
+
+.learn-card {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.learn-card .card{
+	margin: 15px;
+	height: 250px;
+}
+
+.learn-card .lead{
+	font-size: 3em;
 }

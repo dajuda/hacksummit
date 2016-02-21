@@ -12,9 +12,11 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 			'skip': -10,
 		};
 		this.lock = false;
+		this.untilLearnCard = 2;
+		this.learnData = {};
 
 		this.loadView = function( container ) {
-			self._score = 100;
+			self._score = 10;
 			self._parent.background_music.pause();
 			
 			newQuestion( container );
@@ -54,6 +56,18 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 		};
 
 		function newQuestion( container ) {
+			if ( self._score <= 0 ) {
+				gameover();
+				return;
+			}
+
+			if( self.untilLearnCard >= 0 ){
+				self.untilLearnCard--;
+			}else{
+				newLearnCard( container );
+				return;
+			}
+
 			self.templateData.gamescore = self._score;
 			self.templateData.question = Sign.getRandomQuestion();
 			self.templateData.gifs = Sign.getRandomGifs(2, self.templateData.question.correct);
@@ -134,10 +148,6 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 		}
 
 		function continuePlaying( skipping ) {
-			if ( self._score <= 0 ) {
-				gameover();
-				return;
-			}
 			skipping = skipping || false;
 			$('.question-field').addClass('out');
 			$('.img-row').removeClass('in');
@@ -147,6 +157,17 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 		function gameover(){
 			self._parent.gamescore = self._score;
 			self._parent.loadView('gameover');
+		}
+
+		function newLearnCard( container ) {
+			self.learnData = Sign.getRandomGifs(1)[0];
+			self.untilLearnCard = 2;
+			require(['hbs!../templates/learnCard'], function( template ) {
+				$(container).html(template(self.learnData));
+				$('#continue_btn').on('click', function( event ){
+					newQuestion( container );
+				});
+			});
 		}
 
 	}
