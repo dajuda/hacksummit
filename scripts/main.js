@@ -8,8 +8,6 @@ requirejs.config({
         'bootstrap' : 'bootstrap-3.3.6-dist/js/bootstrap.min',
         'hbs'		: 'require-handlebars-plugin/hbs',
         'handlebars': 'require-handlebars-plugin/hbs/handlebars.runtime',
-        'numeral'   : 'numeraljs/numeral.min',
-        'moment'    : 'moment/moment',
         'odometer'  : 'odometer/odometer.min',
     },
     hbs: { // optional

@@ -77,6 +77,11 @@ footer p {
 	border-radius: 10px;
 }
 
+.main-menu-itens li .glyphicon{
+	float: left;
+	margin-top: 10px;
+}
+
 .main-menu-itens li:hover {
 	background-color: #222;
 	color: #FFF;
@@ -195,6 +200,7 @@ footer p {
 	padding: 10px 0;
 	border-radius: 5px; 
 	box-shadow: 5px 5px #CCC; 
+	text-align: center;
 }
 
 .learn-card {
@@ -217,4 +223,19 @@ footer p {
 
 .instruction-row.out {
 	visibility: hidden;
+}
+
+.final-score {
+	font-size: 10em;
+	font-weight: bold;
+	margin: 20px;
+}
+
+.game-over-container {
+	padding-top: 20px;
+}
+
+.game-over-btngroup {
+	text-align: center;
+	margin: 10px 0;
 }
