@@ -1,7 +1,7 @@
 <div class="play-content">
 	<div class="row">
 		<div class="col-lg-4 gamescore">
-			<button class="btn btn-default" id="back_button">Back</button>
+			<button class="btn btn-default" id="back_button">Back (Forfeit)</button>
 			<div id="gamescore">
 				Score: <strong>{{ gamescore }}000</strong>
 			</div>
@@ -15,7 +15,7 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2 question-field">
-			<div class="question-text">O <strong>gato</strong> andou na calçada{{ question }}</div>
+			<div class="question-text">{{{ question.value }}}</div>
 		</div>
 	</div>
 	<div class="row">

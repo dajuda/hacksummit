@@ -1,4 +1,4 @@
-define( [ 'app/modules/Gifs' ], function( Gifs ) {
+define( [ 'app/modules/Gifs', 'app/modules/Questions' ], function( Gifs, Questions ) {
 
 	var self = {};
 	self.imageCount = {};
@@ -7,6 +7,11 @@ define( [ 'app/modules/Gifs' ], function( Gifs ) {
 		console.log(Gifs);
 		return self.chooseRandomN( n, Gifs );
 	};
+
+	self.getRandomQuestion = function( ){
+		console.log(Questions);
+		return self.chooseRandomN( 1, Questions )[0];
+	}
 
 	self.chooseRandomN = function( n, array ) {
 		var itens = [],

@@ -12,6 +12,7 @@ define( [ 'jquery', 'app/modules/Sign' ], function( $, Sign ){
 
 		this.loadView = function( container ) {
 			self.templateData.gifs = Sign.getRandomGifs(3);
+			self.templateData.question = Sign.getRandomQuestion();
 			for( i in self.templateData.gifs ) {
 				Sign.loadImage(gifs[i].url);
 			}
@@ -20,8 +21,8 @@ define( [ 'jquery', 'app/modules/Sign' ], function( $, Sign ){
 
 		this.loadTemplate = function( container ) {
 			require(['hbs!../templates/play'], function( template ) {
+				console.log(self.templateData);
 				$('#main-content').html(template(self.templateData));
-				console.log(self._parent);
 				$('#back_button').on('click', function( event ) {
 					event.preventDefault();
 					self._parent.loadView('index');
