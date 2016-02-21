@@ -240,7 +240,6 @@ footer p {
 	margin: 10px 0;
 }
 
-ul {
-    display: table;
-    margin: 0 auto;
+#aboutText{
+    font-size:20px
 }
