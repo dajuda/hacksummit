@@ -14,7 +14,6 @@ define([ 'jquery', 'app/modules/Play' ], function( $, Play ){
 	function defineViews( ) {
 		self.dataView = {
 			'play': Play.createPlay( self ),
-			//'timeattack': TimeAttack.createAttack(),
 			//'about': About.createAbout(),
 			'index': {
 				loadView: loadIndex,
