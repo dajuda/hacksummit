@@ -1,2 +1,26 @@
-<p>oi</p>
-<p>{{minhaVariavel}}</p>
+<div class="play-content">
+	<div class="row">
+		<div class="col-lg-4">
+			Score: {{ gamescore }}
+		</div>
+		<div class="col-lg-4">
+			<h2>Question</h2>
+		</div>
+		<div class="col-lg-4">
+			<img src="data/img/play/help_btn.png" id="help_btn"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2 question-field">
+			<div class="question-text">O gato andou na calçada{{ question }}</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4 seleciona-img"><img src="{{url}}" /></div>
+		<div class="col-lg-4 seleciona-img"><img src="{{url}}" /></div>
+		<div class="col-lg-4 seleciona-img"><img src="{{url}}" /></div>
+		{{#each gifs}}
+		<div class="col-lg-2 col-lg-offset-1 seleciona-img"><img src="{{url}}" /></div>
+		{{/each}}
+	</div>
+</div>

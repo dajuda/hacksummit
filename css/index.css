@@ -82,3 +82,42 @@ footer{
 	padding-top: 5px;
 	padding-bottom: 10px;
 }
+
+.play-content .row{
+	margin: 15px 0;
+}
+
+.play-content h2{
+	font-size: 5em;
+	font-family: Asenine;
+	cursor: default;
+}
+
+.question-field {
+	height: 100px;
+	box-sizing: border-box;
+	padding: 20px;
+	background-color: #F0F0F0;
+	margin: 20px 0;
+	border-radius: 5px;
+	cursor: default;
+	box-shadow: 5px 5px #CCC;
+}
+
+.question-text {
+	text-decoration: underline;
+	font-size: 2.5em;
+}
+
+.seleciona-img img{
+	min-width: 180px;
+	min-height: 200px;
+	padding: 5px;
+	background-color: #F0F0F0;
+	cursor: pointer;
+	box-shadow: 5px 5px #CCC;
+}
+
+.seleciona-img {
+	text-align: center;
+}
