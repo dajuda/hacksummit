@@ -35,6 +35,7 @@ define( [ 'jquery', 'app/modules/Sign' ], function( $, Sign ){
 				});
 				$('#help_btn').on('click', function( event ) {
 					event.preventDefault();
+                    $('#helpModal').show()
 					console.log("Help wanted");
 				});
 				$('.play-content .seleciona-img').on('click', function( event ) {
