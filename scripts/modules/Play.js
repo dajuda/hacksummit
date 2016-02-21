@@ -17,8 +17,8 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap', 'odometer' ], function( $, 
 		console.log('odom', odom);
 
 		this.loadView = function( container ) {
-			self._score = 10;
-			self.lastScore = 10;
+			self._score = 100;
+			self.lastScore = 100;
 
 			self.play_music = $('#play_music')[0];
 			self.wrong_music = $('#miss_music')[0];
