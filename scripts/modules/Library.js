@@ -12,7 +12,7 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 			require(['hbs!../templates/library'], function( template ) {
                 console.log(self.templateData);
 				$(container).html(template(self.templateData));
-				$('#back_button').on('click', goBack);
+				$('.back-button').on('click', goBack);
 			});
 		};
 

@@ -1,4 +1,4 @@
-define([ 'jquery', 'app/modules/Play', 'app/modules/Library', 'app/modules/About', 'app/modules/Gameover' ], 
+define([ 'jquery', 'app/modules/Play', 'app/modules/Library', 'app/modules/About', 'app/modules/Gameover', 'odometer' ], 
 function( $, Play, Library, About, Gameover ) {
 
 	var self = {};

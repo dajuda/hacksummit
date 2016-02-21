@@ -1,5 +1,12 @@
-<div><button class="btn btn-default" id="back_button">Back</button>
-  <h2>Library</h2>
+<div>
+	<div class="row">
+		<div class="col-lg-2">
+			<button class="btn btn-default back-button" id="back_button"><span class="glyphicon glyphicon-chevron-left"></span>Back</button>
+		</div>
+		<div class="col-lg-8">
+			<h2>Library</h2>
+		</div>
+	</div>
 	<div class="row">
 		{{#each gifs}}
 		<div class="col-lg-4 seleciona-img" data-id="{{name}}"><img src="{{url}}" height="220" />
@@ -7,6 +14,10 @@
     </div>
 		{{/each}}
 	</div>
-
+	<div class="row">
+		<div class="col-lg-2">
+			<button class="btn btn-default back-button" id="back_button"><span class="glyphicon glyphicon-chevron-left"></span>Back</button>
+		</div>
+	</div>
 </div>
 

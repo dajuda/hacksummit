@@ -6,7 +6,6 @@ define( [], function(){
 		this._parent = parent;
 		this.templateData = {};
 
-
 		this.loadView = function( container ) {
 			require(['hbs!../templates/gameover'], function( template ) {
 				$(container).html(template(self.templateData));

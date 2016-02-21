@@ -10,6 +10,7 @@ requirejs.config({
         'handlebars': 'require-handlebars-plugin/hbs/handlebars.runtime',
         'numeral'   : 'numeraljs/numeral.min',
         'moment'    : 'moment/moment',
+        'odometer'  : 'odometer/odometer.min',
     },
     hbs: { // optional
         helpers: false,						// default: true
@@ -22,6 +23,10 @@ requirejs.config({
     	'bootstrap' : { 
             'deps' : ['jquery'],
         },
+        'odometer' : {
+            'deps' : [ 'jquery' ],
+            'exports' : 'Odometer',
+        }
     },
     waitSeconds: 25,
 });

@@ -173,6 +173,13 @@ footer p {
 	text-align: center;
 }
 
+.seleciona-img p{
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 5px 0;
+	margin-bottom: 30px;
+}
+
 .play-content .selected img {
 	background-color: #439BFF;
 	box-shadow: 5px 5px #436AFF;

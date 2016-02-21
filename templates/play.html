@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="css/odometer.css" />
 <div class="play-content">
 	<div class="row">
 		<div class="col-lg-4 gamescore">
-			<button class="btn btn-default" id="back_button">Back (Quit Game)</button>
+			<button class="btn btn-default back-button" id="back_button"><span class="glyphicon glyphicon-chevron-left"></span>Back (Quit Game)</button>
 			<div id="gamescore">
-				Score: <strong>{{ gamescore }}</strong>
+				Score: <strong><div class="odometer">{{ gamescore }}</div></strong>
 			</div>
 		</div>
 		<div class="col-lg-4">
@@ -63,6 +64,3 @@
 	<img id="answer_correct" src="data/img/play/correct_lbl.png"/>
 	<img id="answer_wrong" src="data/img/play/miss_lbl.png"/>
 </div>
-	<audio src="data/music/play.mp3" autobuffer autoloop loop id="play_music"></audio>
-	<audio src="data/music/miss.mp3" autobuffer id="miss_music"></audio>
-	<audio src="data/music/correct.mp3" autobuffer id="correct_music"></audio>

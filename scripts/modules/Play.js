@@ -1,4 +1,4 @@
-define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
+define( [ 'jquery', 'app/modules/Sign', 'bootstrap', 'odometer' ], function( $, Sign, bs, odom ){
 
 	function Play( parent ) {
 
@@ -14,10 +14,23 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 		this.lock = false;
 		this.untilLearnCard = 2;
 		this.learnData = {};
+		console.log('odom', odom);
 
 		this.loadView = function( container ) {
 			self._score = 10;
+			self.lastScore = 10;
+
+			self.play_music = $('#play_music')[0];
+			self.wrong_music = $('#miss_music')[0];
+			self.correct_music = $('#correct_music')[0];
+
+			self.play_music.volume = 0.1;
+			self.wrong_music.volume = 0.2;
+			self.correct_music.volume = 0.2;
+
 			self._parent.background_music.pause();
+			if ( self.play_music.paused )
+				self.play_music.play();
 			
 			newQuestion( container );
 		};
@@ -37,20 +50,18 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 				$('.play-content .seleciona-img').on('click', selectImage);
 				$('.img-row').slideDown();
 
-
-				self.play_music = $('#play_music')[0];
-				self.wrong_music = $('#miss_music')[0];
-				self.correct_music = $('#correct_music')[0];
-
-				self.play_music.volume = 0.1;
-				self.wrong_music.volume = 0.2;
-				self.correct_music.volume = 0.2;
-
-				self.play_music.play();
+				var od = new odom({
+					el: $('.odometer')[0],
+					value: self.lastScore,
+					theme: 'default'
+				});
+				od.render();
 
 				setTimeout(function(){
 					$('.question-field').removeClass('in'); 
 					$('.img-row').addClass('in');
+					$('.odometer').html(self._score);
+					self.lastScore = self._score;
 				}, 500);
 			});
 		};
@@ -68,7 +79,7 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 				return;
 			}
 
-			self.templateData.gamescore = self._score;
+			self.templateData.gamescore = self.lastScore;
 			self.templateData.question = Sign.getRandomQuestion();
 			self.templateData.gifs = Sign.getRandomGifs(2, self.templateData.question.correct);
 			
@@ -87,6 +98,8 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 
 		function goBack( event ) {
 			event.preventDefault();
+			self.untilLearnCard = 2;
+			self.play_music.pause();
 			self._parent.loadView('index');
 		}
 
@@ -155,7 +168,9 @@ define( [ 'jquery', 'app/modules/Sign', 'bootstrap' ], function( $, Sign ){
 		}
 
 		function gameover(){
+			self.untilLearnCard = 2;
 			self._parent.gamescore = self._score;
+			self.play_music.pause();
 			self._parent.loadView('gameover');
 		}
 
